@@ -1,4 +1,4 @@
-# theFour Project Pproposal
+# theFour Project Proposal
 ## Restaurant
 ## TBD
 ## Description
