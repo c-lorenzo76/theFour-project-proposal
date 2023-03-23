@@ -25,31 +25,39 @@
 <div class="headStyle">
 <h1>Please Login</h1>
 </div>
-<!--<button class="button" onclick="window.location.href='new-file.html';">Google</button>-->
 <form class = "formStyle">
     <label for="email">Email:</label> 
     <input type="email" id="email">
     <label for="pass"><br><br>Password:</label>
-    <input type="password" id="password"></input><br><br>
+    <input type="password" id="password"></input><br>
     <input type="checkbox">Show password</input>
     <br><br>
+    <select id="job" name="Job">
+        <option disabled hidden selected>Select</option>
+        <option id="GM" value="0">General Manager</option>
+        <option id="Chef" value="1">Chef</option>
+        <option id="Waiter" value="2">Waiter</option>
+      </select>
+    <br><br>
     </form>
-    <button class="button" onclick="window.location.href='Chef.html';">Login Chef</button>
-    <button class="button" onclick="changeWindow(1);">Login Waiter</button>
-    <button class="button" onclick="changeWindow(2);">Login GM</button>
+    <button class="button" onclick="changeWindow();">Login Chef</button>
     <script>
-        function changeWindow(integer){
-            if(integer == 0){
-                //alert("GM");
-                window.location.href="Chef.html";//this is just a place holder for the GM
-            }
-            else if(integer == 1 ){
-                //alert("Chef");
-                window.location.href="Chef.html";
-                
-            }else if(integer == 2){
-                //alert("Waiter");
-                window.location.href="https://www.google.com";//this is just a place holder for the Waiter
+        function changeWindow(){
+                let integer = document.querySelector('select');
+                let scoobbert = integer.options[integer.selectedIndex].text;
+            switch(scoobbert){
+                case 'General Manager':
+                    alert("Welcome General Manager");
+                    window.location.href="Chef.html";
+                    break;
+                case 'Chef':
+                    alert("Welcome Chef");
+                    window.location.href="Chef.html";
+                    break;
+                case 'Waiter':
+                    alert("Welcome Waiter");
+                    window.location.href="Chef.html";
+                    break;
             }
         }
     </script>
