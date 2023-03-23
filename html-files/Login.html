@@ -40,7 +40,7 @@
       </select>
     <br><br>
     </form>
-    <button class="button" onclick="changeWindow();">Login Chef</button>
+    <button class="button" onclick="changeWindow();">Login</button>
     <script>
         function changeWindow(){
                 let integer = document.querySelector('select');
@@ -58,6 +58,8 @@
                     alert("Welcome Waiter");
                     window.location.href="Chef.html";
                     break;
+                default:
+                    alert("Please select a field");
             }
         }
     </script>
