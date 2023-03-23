@@ -4,20 +4,21 @@
         <title>Chef</title>
         <style>
             .chefView{
-            background-color:black;
+            background-color:#363636;;
             text-align:center; 
             color:aqua;
             font-size:32px;
             padding: 4px;
             }
             .chefView1{
-            background-color:black;
+            background-color:#363636;
             text-align:left; 
             color:magenta;
             font-size:32px;
             border: 2px outset black;
             }
             .button1{
+            width:100%;
             font-size:36px;
             background-color:green;
             color:white;
@@ -27,8 +28,13 @@
             color:yellow;
             font-size:24px;
             }
-            table, th, td {
+            table {
+            align-self: center;
             border: 1px solid white;
+            width:100%
+            }
+            th, td{
+                border:1px solid white;
             }
             .status{
             color:#dc2f2f;
@@ -48,7 +54,7 @@
                 <th>Name</th>
                 <th>Status</th> 
                 <th>Timer</th>
-                <th class="button">Done?</th>
+                <th class="button">Change Status</th>
             </tr>
             </thead>   
             <tbody class="chefView">
@@ -56,16 +62,18 @@
                 <td>Jenkins</td>
                 <td class="status" id="status">Not Started</td>
                 <td>00:01:00</td>
-                <td><button class="button1" onclick="changeStatus('status');">Done</button></td>
+                <td><button class="button1" onclick="changeStatus('status');">Change Stauts</button></td>
             </tr>
-            <td  class="order">Order</td>
+            <td  class="order">Order:</td>
             <td class="order"colspan="3">Burger with Onion, Salad</td>
             <tr>
                 <td>Darla</td>
                 <td class="status"id="status1">Cooking</td>
                 <td>00:05:00</td>
-                <td><button class="button1" onclick="changeStatus('status1');">Done</button></td>
+                <td><button class="button1" onclick="changeStatus('status1');">Change Status</button></td> 
             </tr> 
+            <td  class="order">Order:</td>
+            <td class="order"colspan="3">Pep. Pizza LG</td>
             </tbody>
         </table>
         <script>
