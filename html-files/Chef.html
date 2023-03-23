@@ -36,6 +36,9 @@
             .statusDone{
             color:green;
             }
+            .logout{
+            background-color:#dc2f2f;
+            }
         </style>
     <head>
     <body class="chefView">
@@ -67,9 +70,16 @@
         </table>
         <script>
             function changeStatus(statid) {
-                document.getElementById(statid).innerHTML = "Done";
-                //document.getElementsByClass(stat)            
+                if(document.getElementById(statid).innerHTML == "Not Started"){
+                    document.getElementById(statid).innerHTML = "Cooking";
                 }
+                else{
+                    document.getElementById(statid).innerHTML = "Done";   
+                }        
+            }
         </script>
+        <footer>
+        <button class="logout" onclick="window.location.href='Login.html';">Logout</button>
+        </footer>
     </body>    
 </html>    
