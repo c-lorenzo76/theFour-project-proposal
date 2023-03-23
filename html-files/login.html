@@ -108,14 +108,40 @@ span{
                 <div class="mid-layer">
 
                 </div>
-                <form id="login" class="input-group">
+                <form id="login" class="input-group">                   
                     <input type="text" class="input-field" placeholder="Username" >
                     <input type="text" class="input-field" placeholder="Enter Password">
+                    <select class="input-field" id="job" name="Job">
+                        <option disabled hidden selected>Select Postion</option>
+                        <option id="GM" value="0">General Manager</option>
+                        <option id="Chef" value="1">Chef</option>
+                        <option id="Waiter" value="2">Waiter</option>
+                    </select>
                     <input type="checkbox" class="check-box"><span>Remember Password</span>
-                    <button type="submit" class="submit-btn">Log in</button>
+                    
+                    <button type="button" class="submit-btn" onclick="changeWindow()">Log in</button>
                 </form>
             </div>
         </div>
+        <script>
+                    function changeWindow(){
+                        let integer = document.querySelector('select');
+                        let job = integer.options[integer.selectedIndex].text;
+                switch(job){
+                    case 'General Manager':
+                        window.location.href="manager.html";
+                        break;
+                    case 'Chef':
+                        window.location.href="Chef.html";
+                        break;
+                    case 'Waiter':
+                        window.location.href="Waiter.html";
+                        break;
+                    default:
+                        alert("Please select a field");
+                    }
+                }
+        </script>
     </body>
 
 

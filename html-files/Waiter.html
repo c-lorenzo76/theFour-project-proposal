@@ -36,6 +36,10 @@
             .statusDone{
             color:green;
             }
+            .logout{
+                text-align: left;
+                background-color: #dc2f2f;
+            }
         </style>
     <head>
     <body class="waiterView">
@@ -70,10 +74,10 @@
             <tr>
                 
         </table>
+        <button class="logout" onclick="window.location.href='Login.html';">Logout</button>
         <script>
             function changeStatus(statid) {
-                document.getElementById(statid).innerHTML = "Done";
-                //document.getElementsByClass(stat)            
+                document.getElementById(statid).innerHTML = "Done";           
                 }
         </script>
     </body>    
