@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
  *
  * @author CollinHarris
  */
-public interface MenuRepository extends JpaRepository<Menu,Long>{
+public interface MenuRepository extends JpaRepository<MenuItem,Long>{
     
 }

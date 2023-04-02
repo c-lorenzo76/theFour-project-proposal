@@ -1,20 +1,100 @@
 <!DOCTYPE html>
-<html lang = "en">
+<html lang = "en"
+    xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
     <head>
-        <title>Chef View</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Chef</title>
         <style>
-            .chefInterface{
-                background-color: black;
-                font:menu;
-                text-align: center;    
-                border: inset 2px crimson;
+            .chefView{
+            background-color:#363636;;
+            text-align:center; 
+            color:aqua;
+            font-size:32px;
+            padding: 4px;
+            }
+            .chefView1{
+            background-color:#363636;
+            text-align:left; 
+            color:magenta;
+            font-size:32px;
+            border: 2px outset black;
+            }
+            .button1{
+            width:100%;
+            font-size:36px;
+            background-color:green;
+            color:white;
+            }
+            .order{
+            text-align:left;
+            color:yellow;
+            font-size:24px;
+            }
+            table {
+            align-self: center;
+            border: 1px solid white;
+            width:100%
+            }
+            th, td{
+                border:1px solid white;
+            }
+            .status{
+            color:#dc2f2f;
+            }
+            .statusDone{
+            color:green;
+            }
+            .logout{
+            background-color:#dc2f2f;
             }
         </style>
-    </head>
-    <body>
-        <div class="chefInterface">
-        </div>
-    </body>
-</html>
+    <head>
+    <body class="chefView">
+        <table> 
+            <thead class="chefView1">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Status</th> 
+                <th>Timer</th>
+                <th class="button">Change Status</th>
+            </tr>
+            </thead>   
+            <tbody class="chefView">
+            <tr>
+                <tr th:each="order : ${orderList}">
+                            <td> <a th:href="@{/order/id={id}(id=${order.id})}" th:text=" ${order.id}" > </a></td>                           
+                            <td th:text=" ${order.name}"></td>
+                            <td th:text=" ${order.status}"></td>
+                </tr>
+                <td><button class="button1" onclick="changeStatus('status');">Change Stauts</button></td>
+            </tr>
+            <td  class="order">Order:</td>
+            <td class="order"colspan="3">Burger with Onion, Salad</td>
+            <tr>
+                <td>1263-84</td>
+                <td>Darla</td>
+                <td class="status"id="status1">Cooking</td>
+                <td>00:05:00</td>
+                <td><button class="button1" onclick="changeStatus('status1');">Change Status</button></td> 
+            </tr> 
+            <td  class="order">Order:</td>
+            <td class="order"colspan="3">Pep. Pizza LG</td>
+            </tbody>
+        </table>
+        <script>
+            function changeStatus(statid) {
+                if(document.getElementById(statid).innerHTML == "Not Started"){
+                    document.getElementById(statid).innerHTML = "Cooking";
+                }
+                else{
+                    document.getElementById(statid).innerHTML = "Done";   
+                }        
+            }
+        </script>
+        <footer>
+        <button class="logout" onclick="window.location.href='Login.html';">Logout</button>
+        </footer>
+    </body>    
+</html>    

@@ -1,6 +1,5 @@
 package com.proto.demo.seat;
 
-import com.proto.demo.menu.*;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**

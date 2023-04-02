@@ -1,6 +1,6 @@
 package com.proto.demo.order;
 
-import com.proto.demo.menu.*;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
