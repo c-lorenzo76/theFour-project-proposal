@@ -15,9 +15,8 @@ public class OrderService {
     private OrderRepository repo;
 
     public List<Order> getAllOrders(){
-        return repo.findAll();//question how would i get a specifi order 
+        return repo.findAll();//question how would i get a specific order 
     }
-    
     public Order getOrder(long orderId){
         return repo.getReferenceById(orderId);
     }
@@ -26,5 +25,18 @@ public class OrderService {
     }
     public void saveOrder(Order order){
         repo.save(order);
+    }
+    public void updateOrderStatus(Order order){
+        switch(order.getStatus()){
+            case NOTSTARTED:
+                order.setStatus(Order.statustype.COOKING);
+                break;
+            case COOKING:
+                order.setStatus(Order.statustype.DONE);
+                break;
+            case DONE:
+                order.setStatus(Order.statustype.SERVED);
+                break;
+        }
     }
 }

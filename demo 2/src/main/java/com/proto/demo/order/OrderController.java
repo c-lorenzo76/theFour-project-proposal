@@ -48,6 +48,11 @@ public class OrderController {
         orderService.saveOrder(order);
         return "redirect:/order/all";
     }
+    @PostMapping("/update-status")
+    public String updateOrderStatus(Order order){
+        orderService.updateOrderStatus(order);
+        return "redirect:/order/all";
+    }
 
     @GetMapping("/new-order")
     public String newOrderForm(Model model) {

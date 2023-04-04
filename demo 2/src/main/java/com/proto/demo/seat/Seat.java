@@ -4,6 +4,7 @@
  */
 package com.proto.demo.seat;
 
+import jakarta.persistence.Embeddable;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -14,13 +15,14 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+
 @AllArgsConstructor
 @Entity
 @Table(name = "seat")
 @NoArgsConstructor
 @Getter
 @Setter
-
+@Embeddable
 public class Seat {
     
     @Id
