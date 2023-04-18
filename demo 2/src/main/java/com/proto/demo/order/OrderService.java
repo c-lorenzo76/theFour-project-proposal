@@ -1,5 +1,7 @@
 package com.proto.demo.order;
 
+import com.proto.demo.order.Order.statustype;
+import com.proto.demo.menu.MenuItem;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +17,7 @@ public class OrderService {
     private OrderRepository repo;
 
     public List<Order> getAllOrders(){
-        return repo.findAll();//question how would i get a specific order 
+        return repo.findAll();
     }
     public Order getOrder(long orderId){
         return repo.getReferenceById(orderId);
@@ -26,17 +28,29 @@ public class OrderService {
     public void saveOrder(Order order){
         repo.save(order);
     }
-    public void updateOrderStatus(Order order){
-        switch(order.getStatus()){
+    public List<MenuItem> getOrderContents(long orderId){
+        return repo.getReferenceById(orderId).getContents();
+    }
+    public statustype updateOrderStatus(long order){
+        Order orderstat=repo.getReferenceById(order);
+        switch(orderstat.getStatus()){
             case NOTSTARTED:
-                order.setStatus(Order.statustype.COOKING);
-                break;
+                orderstat.setStatus(Order.statustype.COOKING);
+                return orderstat.getStatus();
+                //break;
             case COOKING:
-                order.setStatus(Order.statustype.DONE);
-                break;
+                orderstat.setStatus(Order.statustype.DONE);
+                return orderstat.getStatus();
+                //break;
             case DONE:
-                order.setStatus(Order.statustype.SERVED);
-                break;
+                orderstat.setStatus(Order.statustype.SERVED);
+                return orderstat.getStatus();
+                //break;
+            default:
+                return orderstat.getStatus();
         }
+    }
+    public String getOrderStatus(long orderId){
+        return repo.getReferenceById(orderId).getStatus().status;
     }
 }

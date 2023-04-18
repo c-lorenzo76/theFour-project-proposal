@@ -21,7 +21,7 @@ public class MenuItemController{
     @GetMapping("/all")
     public String getMenuItems(Model model) {
         model.addAttribute("menuItemList", menuItemService.getAllMenuItems());
-        return "menuItem/list-menuItems";
+        return "chef";
     }
 
     @GetMapping("/id={MenuItemId}")
