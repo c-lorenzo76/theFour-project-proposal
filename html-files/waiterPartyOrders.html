@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+          xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
+          xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+        <head>
+            <meta charset="utf-8">
+                <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                    <meta name="viewport" content="width=device-width, initial-scale=1">
+                        <title>Bootstrap CRUD Data Table for Database with Modal Form</title>
+                        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+                            <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+                                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+                                    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+                                        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+                                        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+                                        <body>
+                                            <nav class="navbar navbar-inverse">
+                                                <div class="container-fluid">
+                                                    <div class="navbar-header">
+                                                        <a class="navbar-brand">Restaurant</a>
+                                                    </div>
+                                                    <ul class="nav navbar-nav">
+                                                        <li><a th:href="@{/home}">Home</a></li>
+                                                        <li><a th:href="@{/manager}">Manager</a></li>
+                                                        <li class="active"><a th:href="@{/waiter}">Waiter</a></li>
+                                                        <li><a th:href="@{/chef}">Chef</a></li>
+                                                    </ul>
+                                                    <form th:action="@{/logout}" method="post">
+                                                        <input type="submit" value="Sign Out" />
+                                                    </form>
+                                                </div>
+                                            </nav>
+                                            <div class="container">
+                                                <div class="table-wrapper">
+                                                    <div class="table-title">
+                                                        <div class="row">
+                                                            <div class="col-sm-6">
+                                                                <h2>Manage <b>Parties</b></h2>
+                                                            </div>
+                                                            <div class="col-sm-6">
+                                                                <a href="/waiter/new-party" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add party</span></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <table class="table table-striped table-hover">
+                                                        <thead>
+                                                            <tr>
+
+
+                                                                </th>
+                                                                <th>Id</th>
+                                                                <th>Party Name</th>
+                                                                <th>Status</th>
+                                                                <th>Actions</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+
+
+
+                                                                </td>
+                                                                <tr th:each="party : ${partyList}">
+                                                                    <td> <a th:href="@{/waiter/update-status/id={id}(id=${party.id})}" th:text="${party.id}"></a> </td>
+                                                                    <td th:text=" ${party.party_name}"></td>
+                                                                    <td th:text=" ${party.party_status}"></td>
+                                                                    <td>
+                                                                        <a th:href="@{/waiter/delete/id={id}(id=${party.id})}" class="btn btn-primary" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+
+                                                                        <a th:href="@{/waiter/view-order/id={id}(id=${party.id})}" class="btn btn-primary" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+
+                                                                    </td>
+                                                                    </td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <td>
+                                                                        <span class="custom-checkbox">
+                                                                            <input type="checkbox" id="checkbox4" name="options[]" value="1">
+                                                                                <label for="checkbox4"></label>
+                                                                        </span>
+                                                                    </td>
+                                                                    <td>Online Order</td>
+                                                                    <td>30mins</td>
+                                                                    <td>franwilson@mail.com</td>
+                                                                    <td>(204) 619-5731</td>
+                                                                    <td>
+
+                                                                    </td>
+                                                                </tr>					
+
+                                                        </tbody>
+                                                    </table>
+                                                    <div class="clearfix">
+                                                        <div class="hint-text">Showing <b>10</b> out of <b>20</b> parites</div>
+                                                        <ul class="pagination">
+                                                            <li class="page-item disabled"><a href="#">Previous</a></li>
+                                                            <li class="page-item active"><a href="#" class="page-link">1</a></li>
+                                                            <li class="page-item"><a href="#" class="page-link">2</a></li>
+                                                            <li class="page-item"><a href="#" class="page-link">3</a></li>
+                                                            <li class="page-item"><a href="#" class="page-link">4</a></li>
+                                                            <li class="page-item"><a href="#" class="page-link">5</a></li>
+                                                            <li class="page-item"><a href="#" class="page-link">Next</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
